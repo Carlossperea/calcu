@@ -39,7 +39,7 @@ fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
 
     /*PRECIO DÓLAR BLUE (COMPRA)*/
 
-    fetch('curl -X GET https://dolarapi.com/v1/dolares/blue')
+    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
     .then(datos=>datos.json())
     .then(
         datos => {
@@ -51,8 +51,12 @@ fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
 
     /*PRECIO DÓLAR OFICIAL (VENTA)*/
 
-    fetch("https://dolarapi.com/v1/dolares/oficial")
-  .then(response => response.json())
-  .then(data => console.log(data));
+    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
+    .then(datos=>datos.json())
+    .then(
+        datos => {
+            const HTMLResponse = document.querySelector("#cotDolar");
+            HTMLResponse.dataset.cotizacion = datos[0]['casa']['venta'];
+            HTMLResponse.innerHTML = '$ ' + datos[0]['casa']['venta'];
         }
     )
