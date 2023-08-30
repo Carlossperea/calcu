@@ -51,12 +51,8 @@ fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
 
     /*PRECIO DÓLAR OFICIAL (VENTA)*/
 
-    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
-    .then(datos=>datos.json())
-    .then(
-        datos => {
-            const HTMLResponse = document.querySelector("#cotDolar");
-            HTMLResponse.dataset.cotizacion = datos[0]['casa']['venta'];
-            HTMLResponse.innerHTML = '$ ' + datos[0]['casa']['venta'];
+    fetch("https://dolarapi.com/v1/dolares/oficial")
+  .then(response => response.json())
+  .then(data => console.log(data));
         }
     )
