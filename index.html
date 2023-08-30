@@ -1,50 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/calc_dolar.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-   
     <title>DivCalc</title>
 </head>
 
 <body>
 
     <main>
-
+        
         <!--CONTENEDOR-->
-        <div class="container border mt-5 p-3 rounded shadow p-3 mb-5 bg-body rounded" style="width: 1000px;">
+        <div class="container border mt-5 p-3 rounded shadow p-3 mb-5 bg-body rounded w-100">
+            
             <div class="row">
     
                 <h3 class="font-weight-bold text-success mt-1 text-center"><strong><u>Calculadora de dólar tarjeta</u></strong></h3>
     
                 <!-- "COL-CÁLCULOS"-->
 
-                <div class="col-9 mt-2"> <!--Hacer responsivas para adaptar a celulares-->
+                <div class="col-9 mt-2 col-sm-9 col-md-9"> <!--Hacer responsivas para adaptar a celulares -ver col-sm-->
     
-                    <h5><u>Cantidad dólares:</u></h5>
+                    <h5><u>Cantidad dólares </u></h5>
     
-                    <input type="number" id="dolares"  min="0" class="shadow-sm bg-body rounded" size="6" height="25px" onkeydown="visitanteApretoEnter(event)" oninput="validity.valid||(value='');"/>
-                    <div id="dolares" class="form-text mb-2 br-2"><small><i>Debe escribir sólo números</i></small></div>
+                
+                    <input type="number" id="dolares" min="1" step="0.001" value="1" required class="ms-4 shadow-sm bg-body text-center rounded" size="8" height="25px" onkeydown="visitanteApretoEnter(event)" oninput="validity.valid||(value='');"/>
+                    <p class="form-text mb-2 br-2"><small><i>Debe escribir sólo números</i></small></p>
 
                     <p class="valores">Cotización Dólar Oficial: <span id="cotDolar" data-cotizacion=""></span></p>
                     <p class="valores">$ Dólar Oficial (venta): <span id="valorDolar"></span></p>
                     <p class="valores">$ Impuesto PAÍS  (30%): <span id="valorPais"></span></p>
                     <p class="valores">$ Imp. Ganancias (45%): <span id="valorGanancias"></span></p>
+                
                    
     
-                    <a href="#" class="btn btn-secondary mb-3" onclick="calculosImp();">Calcular</a>
+                    <a href="#" class="btn btn-outline-secondary mb-3" onclick="calculosImp();">Calcular</a>
 
-                    <p class="valores text-white bg-success rounded" style="width: 300px;"><strong>TOTAL $ (con impuestos): <span id="valorTotal"></span></strong></p>
+
+                    <a href="#" class="btn btn-outline-secondary mb-3" onclick="resetInput();">Resetear</a>
+                
+
+                    <p class="valores text-white bg-success rounded w-50"><strong class="ms-2">TOTAL $ (con impuestos): <span id="valorTotal" class="text-center"></span></strong></p>
                    
                 </div>
     
                 <!--COL-TARJETA-->
     
-                <div class="col-3 mt-4"> 
+                <div class="col-3 col-sm-3 col-md-3"><!--Hacer responsivas para adaptar a celulares -ver col-sm-->
     
-                    <div class="card border-info shadow p-3 mb-5 bg-body rounded" style="width: 10rem;">
+                    <div class="card border-info shadow p-3 mb-5 bg-body rounded w-75">
                         <div class="card-body, text-center">
 
                           <h6 class="card-title,p-3 mt-2 bg-info text-white rounded">Dólar blue</h6>
@@ -54,18 +60,16 @@
                           <p class="font-weight-bold, text-primary"><span id="cotDolarC" data-cotizacionC=""></span></p>
 
                         </div>
+                    
                     </div>
                     
-                    <a class="p-3" href="http://www.dolarsi.com/api/api.php?type=valoresprincipales" target="blank"><i>Fuente API: Dolar Si</i></a>
+                    <a class="p-3" href="http://www.dolarsi.com" target="blank"><i>Fuente API: Dolar Si</i></a>
                 </div>
     
                 
     
-    
-    
             </div>
     
-           
            
     
         </div>
@@ -80,11 +84,13 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
     <script src="/java.js"></script>
+
+    <script src="/api.js"></script>
 
 
 </body>
 
 
 </html>
-
