@@ -39,7 +39,7 @@ fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
 
     /*PRECIO DÓLAR BLUE (COMPRA)*/
 
-    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
+    fetch('curl -X GET https://dolarapi.com/v1/dolares/blue')
     .then(datos=>datos.json())
     .then(
         datos => {
