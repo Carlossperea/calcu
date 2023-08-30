@@ -51,7 +51,7 @@ fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
 
     /*PRECIO DÓLAR OFICIAL (VENTA)*/
 
-    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
+    fetch('https://www.dolarsi.com/cotizador/cotizadorDolarsiFull.php')
     .then(datos=>datos.json())
     .then(
         datos => {
